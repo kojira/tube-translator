@@ -41,13 +41,6 @@ RUN apt-get update && \
     python3-pip \
     python3-dev
 
-# ==================================================================
-# Git-lfs
-# ------------------------------------------------------------------
-
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
-    $APT_INSTALL git-lfs
-
 # Add symlink so python and python3 commands use same python3.9 executable
 RUN ln -s /usr/bin/python3 /usr/local/bin/python    
 
@@ -80,3 +73,4 @@ COPY ./requirements.txt /home/app/
 WORKDIR /home/app/
 RUN python -m pip install --upgrade pip
 RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
+RUN python -m spacy download en_core_web_sm && python -m spacy download ja_core_news_sm

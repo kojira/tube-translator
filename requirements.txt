@@ -6,3 +6,6 @@ torch
 sentencepiece
 tokenizers
 spacy
+yt_dlp
+python-dotenv
+openai
