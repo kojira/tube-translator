@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  tube-translator:
+    build: .
+    container_name: tube-translator
+    working_dir: /home/app
+    volumes:
+      - ./:/home/app
+    tmpfs:
+      - /dev/shm
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]

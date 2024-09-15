@@ -1,0 +1,8 @@
+pydub
+tqdm
+transformers
+faster-whisper
+torch
+sentencepiece
+tokenizers
+spacy
